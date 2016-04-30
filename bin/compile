@@ -10,7 +10,7 @@ VERSION="4.4.3"
 
 # Buildpack URL
 ARCHIVE_NAME=node-v${VERSION}-linux-x64
-FILE_NAME=${ARCHIVE_NAME}.tar.xz
+FILE_NAME=${ARCHIVE_NAME}.tar.gz
 BUILDPACK_NODEJS_PACKAGE=https://nodejs.org/dist/v${VERSION}/${FILE_NAME}
 
 mkdir -p $CACHE_DIR
