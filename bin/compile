@@ -9,8 +9,8 @@ CACHE_DIR=$2
 VERSION="4.4.3"
 
 # Buildpack URL
-ARCHIVE_NAME=node-v${VERSION}
-FILE_NAME=${ARCHIVE_NAME}.tar.gz
+ARCHIVE_NAME=node-v${VERSION}-linux-x64
+FILE_NAME=${ARCHIVE_NAME}.tar.xz
 BUILDPACK_NODEJS_PACKAGE=https://nodejs.org/dist/v${VERSION}/${FILE_NAME}
 
 mkdir -p $CACHE_DIR
@@ -22,11 +22,8 @@ fi
 echo "-----> Extracting NodeJS ${VERSION} binaries to ${BUILD_DIR}/vendor/nodejs"
 mkdir -p $CACHE_DIR/$ARCHIVE_NAME
 mkdir -p $BUILD_DIR/vendor
-tar vxf $CACHE_DIR/$FILE_NAME -C $CACHE_DIR
-cd $CACHE_DIR/$ARCHIVE_NAME
-./configure --prefix=$BUILD_DIR/vendor/
-make
-make install
+tar xzf $CACHE_DIR/$FILE_NAME -C $CACHE_DIR
+mv $CACHE_DIR/$ARCHIVE_NAME $BUILD_DIR/vendor/nodejs
 
 echo "-----> exporting PATH and LIBRARY_PATH"
 PROFILE_PATH="$BUILD_DIR/.profile.d/nodejs.sh"

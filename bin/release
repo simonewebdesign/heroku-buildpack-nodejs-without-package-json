@@ -1,1 +1,7 @@
 #!/bin/sh
+
+cat << EOF
+---
+config_vars:
+  PATH: "/usr/local/bin:/usr/bin:/bin:/app/vendor/nodejs/bin"
+EOF
