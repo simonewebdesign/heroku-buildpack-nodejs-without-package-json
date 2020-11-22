@@ -6,7 +6,7 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 
 # config
-VERSION="4.4.3"
+VERSION="15.2.1"
 
 # Buildpack URL
 ARCHIVE_NAME=node-v${VERSION}-linux-x64
